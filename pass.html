@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Lab Assignment 6</title>
+    <style>
+        p {
+               text-align: left;
+           }
+       h3{
+               text-align: left;
+               background-color: rgb(34, 5, 33);
+               color: rgb(160, 146, 236);
+           }
+       h2{
+               text-align: left;
+               background-color: rgb(107, 31, 105);
+               color: rgb(89, 108, 218);
+           }
+       .a{
+               text-align: left;
+           }
+       </Style>
     <script>
         var correct = 0, wrong = 0;
+        var countN = 0;
+        var countP = 0;
         function processPhrase() {
 
             secretphrase = document.getElementById("secretphrase").value
             checkphrase = document.getElementById("checkphrase").value
             if (secretphrase == checkphrase) {
                 correct = correct + 1;
+                countN = 0;
                 document.getElementById("result").innerHTML = "Correct count " + correct;
                 alert("access allowed");
             } else {
 
                 wrong = wrong + 1;
+                countN++;
                 document.getElementById("result").innerHTML = "Wrong count " + wrong;
                 alert("access denied");
+                if (countN >= 3) {
+                    if (wrong >= 3) {
+                        incorrectPassPhrase();
+                    }
+                }
             }
         }
+
+        function incorrectPassPhrase() {
+            alert("Account Locked!")
+        }
+        
         var usingImage = 1;
         function newImage() {
 
@@ -43,6 +76,7 @@
   
     </script>
 </head>
+
 <body>
     <h2>Pass phrase by Ravi Teja Yethappu</h2>
    
